@@ -222,30 +222,43 @@ const pets = [
   const petBuilder = (pet_array) => {
       let domString = ''
       pet_array.forEach((pet) => {
-          domString += `<h1>Name: ${pet.name}</h1>`;
-          domString += `<p>Color: ${pet.color}</p>`;
-          domString += `<p>Skill: ${pet.specialSkill}</p>`;
-          domString += `<p>Type: ${pet.type}</p>`;
-          domString += `<img src="${pet.imageUrl}">`;
+          domString += `<div class="cards">`;
+            domString += `<h1>Name: ${pet.name}</h1>`;
+            domString += `<img src="${pet.imageUrl}">`;
+            domString += `<p>Color: ${pet.color}</p>`;
+            domString += `<p>Skill: ${pet.specialSkill}</p>`;
+            domString += `<p class="Type">Type: ${pet.type}</p>`;
+          domString += `</div>`;
       })
       printToDom("pet-cards-container", domString);
   };
 
   const buttonClick = (e) => {
-      const buttonTarget = e.target.id;
-      if (buttonTarget === 'Cat-button') {
-
-      }
-  }
+      console.log('you clicked a button', e.target.id);
+      buttonTarget = e.target.id;
+      const newArray = [];
+      pets.forEach((new_pet) => {
+          if (new_pet.type === buttonTarget) {
+              newArray.push(new_pet);
+          };
+      })
+      if (buttonTarget === "All") {
+          petBuilder(pets);
+      } else {
+          petBuilder(newArray);
+      };
+  };
 
   const buttonEvent = () => {
-      document.getElementById('Dog-button').addEventListener(click, buttonClick);
-      document.getElementById('Cat-button').addEventListener(click, buttonClick);
-      document.getElementById('Dinos-button').addEventListener(click, buttonClick);
+      document.getElementById('All').addEventListener('click', buttonClick);
+      document.getElementById('dog').addEventListener('click', buttonClick);
+      document.getElementById('cat').addEventListener('click', buttonClick);
+      document.getElementById('dino').addEventListener('click', buttonClick);
   }
 
   const init = () => {
       petBuilder(pets);
+      buttonEvent();
   }
 
   init();
