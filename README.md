@@ -4,6 +4,8 @@ Everyone needs a pet! Checkout this web application to get your own virtual furr
 
 Sort through a list of dogs, cats, and dinosaurs to find the pet that bests fits you.
 
+![Image of Web-page.](https://raw.githubusercontent.com/HeathJHMoore/pet-adoption/master/images/Pet-Adoption.png "Screenshot of my webpage")
+)
 
 
 ## Pre Requisites
