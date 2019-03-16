@@ -222,11 +222,11 @@ const pets = [
   const petBuilder = (pet_array) => {
       let domString = ''
       pet_array.forEach((pet) => {
-          domString += `<div class="cards">`;
-            domString += `<h1>Name: ${pet.name}</h1>`;
+          domString += `<div class="cards ${pet.type}">`;
+            domString += `<h1>${pet.name}</h1>`;
             domString += `<img src=${pet.imageUrl}>`;
             domString += `<p>Color: ${pet.color}</p>`;
-            domString += `<p>Skill: ${pet.specialSkill}</p>`;
+            domString += `<p class="Skill">Skill: ${pet.specialSkill}</p>`;
             domString += `<p class="Type">Type: ${pet.type}</p>`;
           domString += `</div>`;
       })
